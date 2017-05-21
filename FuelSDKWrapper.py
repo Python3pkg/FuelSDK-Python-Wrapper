@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
+
 
 import suds
 import time
@@ -126,7 +126,7 @@ class ET_Extract(FuelSDK.rest.ET_Constructor):
         ws_extractRequest.ID = "c7219016-a7f0-4c72-8657-1ec12c28a0db"
 
         ws_parameters = []
-        for name, value in parameters.items():
+        for name, value in list(parameters.items()):
             ws_parameter = auth_stub.soap_client.factory.create("ExtractParameter")
             ws_parameter.Name = name
             if isinstance(value, date) or isinstance(value, datetime):
